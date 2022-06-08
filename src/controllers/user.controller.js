@@ -2,7 +2,7 @@ const catchAsync = require("../utils/catchAsync");
 const userService = require("../services");
 
 // Create and Save a new user
-const create = catchAsync(async (req, res, next) => {
+const create =  catchAsync(async (req, res, next) => {
   // Validate request
   if (!req.body.address) {
     res.status(400).send({ message: "Content can not be empty!" });
