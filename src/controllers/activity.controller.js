@@ -1,6 +1,7 @@
 const catchAsync = require("../utils/catchAsync");
 const activityService = require("../services");
 const ApiError = require("../utils/ApiError");
+import { pick } from lodash;
 
 const create = catchAsync(async (req, res, next) => {
   if (!req.body) {

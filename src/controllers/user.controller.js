@@ -1,6 +1,7 @@
 const catchAsync = require("../utils/catchAsync");
 const userService = require("../services");
 const ApiError = require("../utils/ApiError");
+import { pick } from lodash;
 
 // Create and Save a new user
 const create = catchAsync(async (req, res, next) => {

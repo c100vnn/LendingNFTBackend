@@ -11,7 +11,11 @@ router
   .delete(originNFT.deleteOriginNFT);
 
 router
-  .route("/:tokenId&:contractAddress")
+  .route("/originNft-by-token-info")
   .get(originNFT.getOriginNFTByTokenInfo);
 
 router.route("/:contractAddress").get(originNFT.getAllONFTByContractAddress);
+
+app.use("/api/oNft", router);
+
+module.exports = router;

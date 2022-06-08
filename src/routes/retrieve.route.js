@@ -4,6 +4,6 @@ const retrieveNft = require("../controllers");
 
 router.route("/:accountAddress").post(retrieveNft.getListNfts);
 
-app.use("/api/retrieveNfts", router);
+app.use("/api/retrieveNft", router);
 
 module.exports = router;

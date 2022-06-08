@@ -18,6 +18,6 @@ router.route("/:email").get(user.findByEmail);
 // get: Retrieve list user with conditions
 router.route("/users-by-query").get(user.findUsersByQuery);
 
-app.use("/api/users", router);
+app.use("/api/user", router);
 
 module.exports = router;
