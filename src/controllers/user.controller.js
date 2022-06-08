@@ -1,8 +1,9 @@
 const catchAsync = require("../utils/catchAsync");
 const userService = require("../services");
+const ApiError = require("../utils/ApiError");
 
 // Create and Save a new user
-const create =  catchAsync(async (req, res, next) => {
+const create = catchAsync(async (req, res, next) => {
   // Validate request
   if (!req.body.address) {
     res.status(400).send({ message: "Content can not be empty!" });
@@ -27,7 +28,7 @@ const findAll = catchAsync(async (req, res, next) => {
 
 // Find a single user with an id
 const findUserById = catchAsync(async (req, res, next) => {
-  const user = await userService.getUserById(req.params.userId);
+  const user = await userService.getUserById(req.params.id);
   if (!user) {
     throw new ApiError(httpStatus.NOT_FOUND, "User not found");
   }
@@ -47,7 +48,7 @@ const findUserByEmail = catchAsync(async (req, res, next) => {
 
 // Delete a user with the specified id in the request
 const deleteById = catchAsync(async (req, res, next) => {
-  await userService.deleteUserById(req.params.userId);
+  await userService.deleteUserById(req.params.id);
   res.status(httpStatus.NO_CONTENT).send();
   next();
 });
@@ -63,7 +64,7 @@ const findUsersByQuery = catchAsync(async (req, res, next) => {
 
 //Update user by id
 const updateUser = catchAsync(async (req, res, next) => {
-  const user = await userService.updateUserById(req.params.userId, req.body);
+  const user = await userService.updateUserById(req.params.id, req.body);
   res.status(httpStatus.UPDATED).send(user);
   next();
 });

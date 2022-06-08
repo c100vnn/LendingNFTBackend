@@ -2,9 +2,9 @@ var mongoose = require("mongoose");
 var schema = mongoose.Schema;
 
 var OriginNFTSchema = new schema({
-  tokenId: String,
-  ownerId: String,
-  contractAddress: String,
+  tokenId: { type: String, required: true },
+  ownerId: { type: String, required: true },
+  contractAddress: { type: String, required: true },
 });
 
 /**

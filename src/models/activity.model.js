@@ -2,11 +2,11 @@ var mongoose = require("mongoose");
 var schema = mongoose.Schema;
 
 var ActivitySchema = new schema({
-  userId: String,
-  rentIdId: String,
-  content: String,
-  description: String,
-  createdAt: Date,
+  userId: { type: String, required: true },
+  rentId: { type: String, required: true },
+  content: { type: String, required: true },
+  description: { type: String, required: false },
+  createdAt: { type: Date, required: true, default: Date.now },
 });
 
 module.exports = mongoose.model("activity", ActivitySchema);
