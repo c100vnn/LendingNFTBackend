@@ -2,14 +2,13 @@ var mongoose = require("mongoose");
 var schema = mongoose.Schema;
 
 var ItemSchema = new schema({
-  tokenId: String,
-  dailyPrice: Number,
-  minDuration: Number,
-  maxDuration: Number,
-  collateral: Number,
-  isActive: Boolean,
-  isRemoved: Boolean,
+  tokenId: { type: String, required: true },
+  dailyPrice: { type: Number, required: true },
+  minDuration: { type: Number, required: true },
+  maxDuration: { type: Number, required: true },
+  collateral: { type: Number, required: true },
+  isActive: { type: Boolean, required: true },
+  isRemoved: { type: Boolean, required: true },
 });
 
-
-module.export = mongoose.model("item", ItemSchema);
+module.exports = mongoose.model("item", ItemSchema);
