@@ -3,7 +3,7 @@ const express = require("express");
 const user = require("../controllers");
 
 // post: Create a new User, get: get all Users
-router.route("/").post(user.create).get("/", user.findAll);
+router.route("/").post(user.create).get(user.findAll);
 
 // get: Retrieve a single User with id, delete: Delete a User with id
 router
